@@ -1,20 +1,28 @@
 var path = require('path');
-
+var webpack = require('webpack');
 module.exports = {
-  context: __dirname + '/src',
-  entry: './entry.js',
+  entry: {
+    app: ['webpack/hot/dev-server', './src/entry.js']
+  },
   output: {
-    path: __dirname + '/build',
-    publicPath: 'http://localhost:8080/build/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    path: './public/built',
+    publicPath: 'http://localhost:8080/built/'
+  },
+  devServer: {
+    contentBase: './public',
+    publicPath: 'http://localhost:8080/built/'
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loaders: ['babel']
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
 };
