@@ -5,6 +5,9 @@ import Slider from '../../node_modules/material-ui/lib/slider';
 import Card from '../../node_modules/material-ui/lib/card/card'
 import RaisedButton from '../../node_modules/material-ui/lib/raised-button';
 import Colors from '../../node_modules/material-ui/lib/styles/colors';
+import LeftNav from '../../node_modules/material-ui/lib/left-nav';
+import MenuItem from '../../node_modules/material-ui/lib/menus/menu-item';
+
 
 const style = {
   height: 100,
@@ -29,7 +32,7 @@ export default class Piggy extends React.Component{
       <div>
         <Paper style = {style2}>
           <Paper style={style}>
-            <FlatButton>CLICffK MEk!</FlatButton>
+            <FlatButton>CLICffff!</FlatButton>
           </Paper>
           <Paper style={style}>
             <RaisedButton>PiggyBoy</RaisedButton>

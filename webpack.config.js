@@ -19,6 +19,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loaders: ['babel']
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css?modules', 'sass'],
+        include: path.resolve(__dirname, './node_modules/react-flexbox-grid')
       }
     ]
   },
