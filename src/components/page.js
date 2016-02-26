@@ -1,10 +1,10 @@
 import React from 'react';
-import FlatButton from 'material-ui/lib/flat-button';
-import Paper from 'material-ui/lib/paper';
-import Slider from 'material-ui/lib/slider';
-import Card from 'material-ui/lib/card/card'
-import RaisedButton from 'material-ui/lib/raised-button';
-import Colors from 'material-ui/lib/styles/colors';
+import FlatButton from '../../node_modules/material-ui/lib/flat-button';
+import Paper from '../../node_modules/material-ui/lib/paper';
+import Slider from '../../node_modules/material-ui/lib/slider';
+import Card from '../../node_modules/material-ui/lib/card/card'
+import RaisedButton from '../../node_modules/material-ui/lib/raised-button';
+import Colors from '../../node_modules/material-ui/lib/styles/colors';
 
 const style = {
   height: 100,
@@ -29,7 +29,7 @@ export default class Piggy extends React.Component{
       <div>
         <Paper style = {style2}>
           <Paper style={style}>
-            <FlatButton>CLICK MEk!</FlatButton>
+            <FlatButton>CLICffK MEk!</FlatButton>
           </Paper>
           <Paper style={style}>
             <RaisedButton>PiggyBoy</RaisedButton>
