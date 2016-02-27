@@ -36,3 +36,7 @@ node_modules
 .swp
 
 .idea
+
+# bundlejs files
+/public/built/bundle.js
+/public/built/bundle.js.map
