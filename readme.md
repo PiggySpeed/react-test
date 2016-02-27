@@ -1,4 +1,21 @@
-#  Intelli Med Tech Stack
+#  React-Test
+`react-test` is a development environment that lets you prototype
+components within an electron-react application.
+
+This will also help teach you about some of the web development
+technologies out there.
+
+(I'm considering changing the name of this repo to react + electron =
+`reactron`)
+
+## Start
+To start using this code:
+1. Ensure you have the latest version of nodejs/npm installed
+2. Open a console and enter "npm install"
+3. Open a console and enter "npm run-script watch"
+4. Open another console and enter "npm start"
+
+To run the code in the future, you only need to run steps 3 and 4.
 
 ## Introduction
 We are using a tech stack that allows us to build a responsive desktop
@@ -22,6 +39,8 @@ using.
 * Express
 * jquery
 * mysql
+
+* react-devtools
 
 ## node.js
 

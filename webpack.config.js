@@ -13,6 +13,8 @@ module.exports = {
     contentBase: './public',
     publicPath: 'http://localhost:8080/built/'
   },
+  devTool: 'source-map',
+  debug: true,
   module: {
     loaders: [
       {
