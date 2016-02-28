@@ -1,7 +1,7 @@
 {
-  "name": "react-test",
+  "name": "reactron",
   "version": "1.0.0",
-  "description": "",
+  "description": "For developing electron-react applications.",
   "main": "main.js",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "watch": "webpack-dev-server --hot --watch --inline --progress"
   },
   "author": "PiggyBoy",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "electron-prebuilt": "^0.36.7",
     "express": "^4.13.4",

@@ -1,6 +1,9 @@
 var path = require('path');
 var webpack = require('webpack');
+
 module.exports = {
+  devtool: 'source-map',
+  debug: true,
   entry: {
     app: ['webpack/hot/dev-server', './src/entry.js']
   },
@@ -13,8 +16,6 @@ module.exports = {
     contentBase: './public',
     publicPath: 'http://localhost:8080/built/'
   },
-  devTool: 'source-map',
-  debug: true,
   module: {
     loaders: [
       {
@@ -28,8 +29,5 @@ module.exports = {
         include: path.resolve(__dirname, './node_modules/react-flexbox-grid')
       }
     ]
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  }
 };
