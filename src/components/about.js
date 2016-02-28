@@ -5,6 +5,7 @@ export default class AboutPage extends React.Component{
     return(
       <div>
         <h1>ABOUT PAGE</h1>
+        <p>flexboxgrid is in use right now</p>
       </div>
     );
   }

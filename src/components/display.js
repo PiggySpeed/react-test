@@ -5,11 +5,11 @@ export default class DisplayPage extends React.Component{
     return(
       <div>
         <h1>DISPLAY PAGE</h1>
+        <p>Here too</p>
       </div>
     );
   }
 };
-
 
 //import FlatButton from '../../node_modules/material-ui/lib/flat-button';
 //import Paper from '../../node_modules/material-ui/lib/paper';

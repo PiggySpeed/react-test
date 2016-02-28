@@ -4,7 +4,6 @@
 // modules.
 // Is it possible to have main.js become the entry point? Can we merge main.js with
 // entry.js?
-
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import DisplayPage from './components/display';

@@ -40,8 +40,6 @@ using.
 * jquery
 * mysql
 
-* react-devtools
-
 ## node.js
 
 ## npm
@@ -57,11 +55,12 @@ will look like when they're rendered.
 - Tutorial: https://facebook.github.io/react/docs/jsx-in-depth.html
 
 ## Babel
-Some browsers are not updated to understand ECMAScript 2015 code. Babel
-translates ECMAScript 6 code into ECMAScript 5 so that your code is
-compatible with modern web browsers. Babel can also translate jsx into
-javascript, which is perfect for our react components. You have to
+Some browsers are not updated to understand ECMAScript 2015 code.
+Babel translates ECMAScript 6 code into ECMAScript 5 so that your code
+is compatible with modern web browsers. Babel can also translate jsx
+into javascript, which is perfect for our react components. You have to
 create a .babelrc file in order to use the loaders. 
+- Understanding Babel Polyfill: https://medium.com/@jcse/clearing-up-the-babel-6-ecosystem-c7678a314bf3#.56pyf7yxv
 
 ## Electron
 Electron lets us create a desktop application using web technologies.
@@ -78,7 +77,13 @@ parent nodes, rather than the entire page.
 - Tutorial: https://blog.risingstack.com/the-react-way-getting-started-tutorial/
 
 ## Less
-The same as CSS, except with the option to add more functionality.
+Less is essentially CSS with the added ability to use functions, declare
+variables, and many other things to make it more customizable and
+maintainable.
+- Why you should use a preprocessor: https://www.urbaninsight.com/2012/04/12/ten-reasons-you-should-be-using-css-preprocessor
+- Less vs Sass: https://blog.logentries.com/2014/10/which-css-preprocessor-should-you-choose/
+- How to get Less working with Webpack: https://christianalfoni.github.io/react-webpack-cookbook/Loading-LESS-or-SASS.html
+- Official Site: http://lesscss.org/
 
 ## Material-UI
 Material-UI is a set of react components designed with Google's Material
@@ -86,6 +91,15 @@ Design framework in mind. It is picking up momentum in the current web
 landscape. Material-UI does not provide anything for layout (unlike
 Bootstrap's grid). Therefore, you will need to import `flexboxgrid` if
 you want to structure things within a grid.
+- Tutorial: https://www.google.com/design/spec/material-design/introduction.html#
+
+Note: I am currently unsure of the advantages of using `react-flexbox-grid`
+over `flexboxgrid`. It seems that `flexboxgrid` does the trick, but you
+will need to replace the `class` attribute with `className` so that it
+doesn't conflict with ES6 standards (ES6 uses `class` as a reserved keyword).
+- Flexboxgrid: http://flexboxgrid.com/
+- Complete Guide to Flexboxgrid: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+- React Conference (mentions Flexbox): https://www.youtube.com/watch?v=7rDsRXj9-cU&t=996
 
 ## Webpack
 Instead of having to send all of your files and node modules to the
@@ -100,7 +114,7 @@ do many other things as well.
 Normally we would have to terminate the application and re-run it every
 we make changes in our code. With `webpack-dev-server` hosting our code
 through a development server, we can specify some configurations that allow
-changes to be reflected during runtime. This is where
+changes to be implemented during runtime. This is where
 `webpack-hot-middleware` comes in. While the application is still running,
 this module takes whatever code you changed, updates those changes on
 the bundle.js file hosted on `webpack-dev-server`, and refreshes the
@@ -108,6 +122,10 @@ application to reflect the latest changes. This is called Hot Module
 Replacement. This means you can instantly see the results of your
 programming in real time. Allowing HMR boosts productivity, especially for
 development in React (it preserves the application state while updating).
+
+Note that changes to webpack.config.js, index.html, and package.json
+can't undergo HMR. Therefore you will have to restart the application
+completely or refresh the web page if you make changes to these files.
 
 Changes:
 - The HotModuleReplacement plugin in webpack.config.js is unnecessary. 
