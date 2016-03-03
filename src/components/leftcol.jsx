@@ -2,7 +2,7 @@ import * as React from 'react';
 //import FlatButton from '../../node_modules/material-ui/lib/flat-button';
 //import Paper from '../../node_modules/material-ui/lib/paper';
 //import Slider from '../../node_modules/material-ui/lib/slider';
-import Card from '../../node_modules/material-ui/lib/card/card'
+import Card from '../../node_modules/material-ui/lib/card/card';
 import RaisedButton from '../../node_modules/material-ui/lib/raised-button';
 import Colors from '../../node_modules/material-ui/lib/styles/colors';
 //import LeftNav from '../../node_modules/material-ui/lib/left-nav';
@@ -22,12 +22,13 @@ var cards = [];
 
 var styles = {
   card_default: {
+    color: Colors.white
   },
   card_done: {
     color: Colors.lightGreenA100
   },
   card_delay: {
-    color: Colors.yellowA100
+    color: Colors.yellow200
   },
   card_delete: {
     color: Colors.redA100
@@ -38,18 +39,24 @@ class FancyCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      piggy: true
+      piggy: 0
     }
   }
   toggleCardState(e) {
     this.setState({
-      piggy: !this.state.piggy
+      piggy: this.state.piggy + 1
     });
-    if (this.state.piggy == true) {
-      e.currentTarget.style.backgroundColor = Colors.lightGreenA100;
+    if (this.state.piggy >2) {
+      this.setState({
+        piggy: 0
+      })
     }
-    else {
-      e.currentTarget.style.backgroundColor = Colors.white;
+    if (this.state.piggy == 0) {
+      e.currentTarget.style.backgroundColor = styles.card_default.color;
+    } else if (this.state.piggy == 1) {
+      e.currentTarget.style.backgroundColor = styles.card_done.color;
+    } else if (this.state.piggy == 2) {
+      e.currentTarget.style.backgroundColor = styles.card_delay.color;
     }
   }
   render() {

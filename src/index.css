@@ -5,18 +5,14 @@
 .material {
   font-family: 'Roboto', sans-serif;
 }
-
 .active {
   color: green;
 }
-
-
 /* Layout Code */
-.top-bar, .top-bar:before {
+.top-bar,
+.top-bar:before {
   width: 100%;
   height: 100px;
-}
-.top-bar {
 }
 .top-bar:before {
   content: '';
@@ -26,8 +22,8 @@
   z-index: -1;
   background-color: #edf6fa;
 }
-
-.left-col, .left-col:before {
+.left-col,
+.left-col:before {
   width: 33%;
 }
 .left-col {
@@ -43,8 +39,8 @@
   left: 0;
   background-color: #79e5ff;
 }
-
-.middle-col, .middle-col:before {
+.middle-col,
+.middle-col:before {
   width: 33%;
 }
 .middle-col {
@@ -57,7 +53,7 @@
   top: 100px;
   bottom: 0;
   z-index: -1;
-  left:33.3%;
+  left: 33.3%;
   background-color: #9aff95;
 }
 .middle-col-text {
@@ -70,8 +66,8 @@
   margin: 0;
   background-color: white;
 }
-
-.right-col, .right-col:before {
+.right-col,
+.right-col:before {
   width: 33.3%;
 }
 .right-col {
@@ -87,7 +83,6 @@
   left: 66.6%;
   background-color: #79e5ff;
 }
-
 /* Card Items */
 .card1 {
   position: relative;
