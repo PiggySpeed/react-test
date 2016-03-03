@@ -23,8 +23,6 @@ application using web technologies. This document with help you become
 familiarized with all the different libraries and modules that we are
 using.
 
-* node.js
-* npm
 * ECMAScript 2015 (ES6)
 * jsx
 * Babel
@@ -40,13 +38,10 @@ using.
 * jquery
 * mysql
 
-## node.js
-
-## npm
-
 ## ECMAScript 6/2015 (ES6)
 Scripting language specification for languages such as JavaScript. It
 was published in June 2015.
+- Online Book: http://exploringjs.com/es6/
 
 ## JSX
 JSX is an XML syntax extension to ECMAScript. It is XML that you put into
@@ -76,6 +71,8 @@ sidepanel component to appear/disappear) allow re-rendering of just the
 parent nodes, rather than the entire page.
 - Tutorial: https://blog.risingstack.com/the-react-way-getting-started-tutorial/
 
+Note: React components are case-sensitive.
+
 ## Less
 Less is essentially CSS with the added ability to use functions, declare
 variables, and many other things to make it more customizable and
@@ -100,6 +97,12 @@ doesn't conflict with ES6 standards (ES6 uses `class` as a reserved keyword).
 - Flexboxgrid: http://flexboxgrid.com/
 - Complete Guide to Flexboxgrid: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 - React Conference (mentions Flexbox): https://www.youtube.com/watch?v=7rDsRXj9-cU&t=996
+
+Note: Some of the code in `material-ui` includes ES6 features that are not
+completely supported in Babel (e.g. arrow functions the LeftNav code).
+When you encounter syntax and parsing errors, see if it is related to
+using ES6 syntax. You can use Babel's online code transpiler to help.
+- Online Transpiler: https://babeljs.io/repl/
 
 ## Webpack
 Instead of having to send all of your files and node modules to the

@@ -1,3 +1,7 @@
+.body {
+  margin: 0;
+  padding: 0;
+}
 .material {
   font-family: 'Roboto', sans-serif;
 }
@@ -6,14 +10,88 @@
   color: green;
 }
 
-.boxit1 {
-  background-color: #33acfe;
+
+/* Layout Code */
+.top-bar, .top-bar:before {
+  width: 100%;
+  height: 100px;
+}
+.top-bar {
+}
+.top-bar:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #edf6fa;
 }
 
-.boxit2 {
-  background-color: #ff8f5c;
+.left-col, .left-col:before {
+  width: 33%;
+}
+.left-col {
+  padding: 6px;
+  float: left;
+}
+.left-col:before {
+  content: '';
+  position: absolute;
+  top: 100px;
+  bottom: 0;
+  z-index: -1;
+  left: 0;
+  background-color: #79e5ff;
 }
 
-.boxit3 {
-  background-color: #acff7b;
+.middle-col, .middle-col:before {
+  width: 33%;
+}
+.middle-col {
+  padding: 6px;
+  display: inline-block;
+}
+.middle-col:before {
+  content: '';
+  position: absolute;
+  top: 100px;
+  bottom: 0;
+  z-index: -1;
+  left:33.3%;
+  background-color: #9aff95;
+}
+
+.right-col, .right-col:before {
+  width: 33.3%;
+}
+.right-col {
+  padding: 6px;
+  float: right;
+}
+.right-col:before {
+  content: '';
+  position: absolute;
+  top: 100px;
+  bottom: 0;
+  z-index: -1;
+  left: 66.6%;
+  background-color: #79e5ff;
+}
+
+/* Card Items */
+.card1 {
+  position: relative;
+  height: 75px;
+  left: -12px;
+  top: -24px;
+  padding: 6px;
+  margin: 6px;
+}
+.card2 {
+  position: relative;
+  height: 75px;
+  left: -12px;
+  top: -24px;
+  padding: 6px;
+  margin: 6px;
 }

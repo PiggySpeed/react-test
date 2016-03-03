@@ -5,7 +5,7 @@ module.exports = {
   devtool: 'source-map',
   debug: true,
   entry: {
-    app: ['webpack/hot/dev-server', './src/entry.js']
+    app: ['webpack/hot/dev-server', './src/entry.jsx']
   },
   output: {
     filename: 'bundle.js',
@@ -19,12 +19,13 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['babel']
+        loader: 'babel'
       },
       {
         test: /\.less$/,
+        exclude: /node_modules/,
         loader: 'style!css!less'
       }
     ]
