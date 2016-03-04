@@ -61,14 +61,20 @@
   background-color: #9aff95;
 }
 .middle-col-text {
-  top: -36px;
-  position: relative;
-  height: 500px;
+  position: absolute;
+  top: 100px;
   bottom: 0;
-  left: -14px;
+  width: 33%;
+  left: 33.3%;
+}
+.middle-col-text-area{
+  resize: none;
+  outline: none;
+  width: 100%;
   padding: 0;
+  border: none;
+  height: 100%;
   margin: 0;
-  background-color: white;
 }
 
 .right-col, .right-col:before {
@@ -76,7 +82,7 @@
 }
 .right-col {
   padding: 6px;
-  float: right;
+  float:right;
 }
 .right-col:before {
   content: '';
@@ -87,7 +93,18 @@
   left: 66.6%;
   background-color: #79e5ff;
 }
-
+.right-col-paper {
+  position: relative;
+  resize: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  margin: 0;
+  left: 0;
+  top: 0;
+}
 /* Card Items */
 .card1 {
   position: relative;

@@ -74,13 +74,13 @@ class FancyCards extends React.Component {
   constructor(props) {
     super(props);
   }
-  createcard(i) {
+  static createcard(i) {
     return (<Card className="card1"><p>This is card o {i}</p></Card>);
   }
-  addcard(card) {
+  static addcard(card) {
     cards.push(card);
   }
-  updatecards() {
+  static updatecards() {
     console.log('update feature still in progress');
   }
   render() {

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import LeftCol from './leftcol.jsx';
-import MiddleCol from './middlecol.jsx'
+import MiddleCol from './middlecol.jsx';
+import RightCol from './rightcol.jsx';
 
 export default class AboutPage extends React.Component{
   render() {
@@ -15,7 +16,7 @@ export default class AboutPage extends React.Component{
         </div>
 
         <div className="right-col">
-          rightco
+          <RightCol/>
         </div>
       </div>
     );

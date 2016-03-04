@@ -13,15 +13,15 @@ class FancyNotes extends React.Component {
   render() {
     return (
       <Paper className="middle-col-text">
-        <p>hellooo</p>
-        <TextField
-          fullWidth ={true}
-          multiLine ={true}/>
+        <h6>Enter Your Notes Here</h6>
+        <textarea className="middle-col-text-area">
+        </textarea>
       </Paper>
     )
   }
 }
 
+// next steps: create right column
 
 export default class MiddleCol extends React.Component {
   render() {
