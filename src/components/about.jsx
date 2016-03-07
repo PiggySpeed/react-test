@@ -3,7 +3,7 @@ import LeftCol from './leftcol.jsx';
 import MiddleCol from './middlecol.jsx';
 import RightCol from './rightcol.jsx';
 
-export default class AboutPage extends React.Component{
+export default class AboutPage extends React.Component {
   constructor(props){
     super(props);
     this.state = {

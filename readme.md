@@ -31,7 +31,7 @@ using.
 * React
 * Less
 * Material-UI
-* flexboxgrid
+* Radium
 * Webpack
 
 * Express
@@ -70,6 +70,7 @@ comparing the Virtual DOM vs. the real DOM (e.g. such as when you want a
 sidepanel component to appear/disappear) allow re-rendering of just the
 parent nodes, rather than the entire page.
 - Tutorial: https://blog.risingstack.com/the-react-way-getting-started-tutorial/
+- Communication between React Components: http://andrewhfarmer.com/component-communication/#3-callback-functions
 
 Note: React components are case-sensitive.
 
@@ -103,6 +104,22 @@ completely supported in Babel (e.g. arrow functions the LeftNav code).
 When you encounter syntax and parsing errors, see if it is related to
 using ES6 syntax. You can use Babel's online code transpiler to help.
 - Online Transpiler: https://babeljs.io/repl/
+
+## Radium
+Radium is a library for styling React components. It takes advantage of inline
+styling, which helps with the component aspect of React. It also supports 
+media queries, browser states, and modifiers. The use of inline styles is still
+a subject of continued debate. You can still use css/less files for more 
+sweeping changes, but this makes maintainability much harder.
+- Radium: http://stack.formidable.com/radium/
+- List of React Styling Alternatives: https://github.com/FormidableLabs/radium/blob/master/docs/comparison/README.md
+- Radium tutorial: https://www.youtube.com/watch?v=15zaRfm30aM
+- Styling React Components with Radium: https://shellmonger.com/2016/02/09/styling-react-components-with-radium/
+
+Note: Since decorators are not supported yet in Babel 6, install the plugin
+`babel-plugin-transform-decorators-legacy` and insert it into your .babelrc
+file. This issue is discussed here: http://stackoverflow.com/questions/33801311/webpack-babel-6-es6-decorators/34210231#34210231
+
 
 ## Webpack
 Instead of having to send all of your files and node modules to the

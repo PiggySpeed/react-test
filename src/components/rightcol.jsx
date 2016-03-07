@@ -8,25 +8,95 @@ import Colors from '../../node_modules/material-ui/lib/styles/colors';
 //import LeftNav from '../../node_modules/material-ui/lib/left-nav';
 import MenuItem from '../../node_modules/material-ui/lib/menus/menu-item';
 import TextField from '../../node_modules/material-ui/lib/text-field';
+import Table from 'material-ui/lib/table/table';
+import TableHeaderColumn from 'material-ui/lib/table/table-header-column';
+import TableRow from 'material-ui/lib/table/table-row';
+import TableHeader from 'material-ui/lib/table/table-header';
+import TableRowColumn from 'material-ui/lib/table/table-row-column';
+import TableBody from 'material-ui/lib/table/table-body';
 
+import Radium from 'radium';
 
+@Radium
 class WeeklyList extends React.Component {
   constructor(props) {
     super(props);
   }
+  static defaultProps() {
+    return {
+      data: []
+    }
+  }
   render() {
     return (
-      <Card className="weeklyListCard"><p>{this.props.foogle}</p></Card>
+      <Table
+        multiSelectable={true}>
+        <TableHeader
+          displaySelectAll={false}
+          adjustForCheckbox={false}>
+          <TableRow>
+            <TableRowColumn>
+              {this.props.data.title}
+            </TableRowColumn>
+          </TableRow>
+        </TableHeader>
+        <TableBody
+          deselectOnClickaway={false}>
+          {this.props.data.goals.map(function(item, i){
+            return (
+              <TableRow key={i}>
+                <TableRowColumn>
+                  {item}
+                </TableRowColumn>
+              </TableRow>
+            )})}
+        </TableBody>
+      </Table>
     )
   }
 }
+
+var styles = {
+  base: {
+    color: "#79e5ff"
+  },
+  active: {
+    backgroundColor: "Green"
+  },
+  success: {
+    background: "Yellow"
+  }
+};
+
 class MonthlyList extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
     return (
-      <Card className="monthlyListCard"><p>{this.props.addItem}</p></Card>
+      <Table
+        multiSelectable={true}>
+        <TableHeader
+          displaySelectAll={false}
+          adjustForCheckbox={false}>
+          <TableRow>
+            <TableRowColumn>
+              {this.props.data.title}
+            </TableRowColumn>
+          </TableRow>
+        </TableHeader>
+        <TableBody
+          deselectOnClickaway={false}>
+          {this.props.data.goals.map(function(item, i){
+            return (
+              <TableRow key={i}>
+                <TableRowColumn>
+                  {item}
+                </TableRowColumn>
+              </TableRow>
+            )})}
+        </TableBody>
+      </Table>
     )
   }
 }
@@ -34,21 +104,32 @@ class MonthlyList extends React.Component {
 export default class RightCol extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      listItems: ["cow", "pig"]
-    };
   }
   render() {
     return (
-      <div className="right-col-container">
-        <WeeklyList className="weeklyList" foogle="fecgffly"/>
-        <MonthlyList addItem="piggly"/>
+      <div>
+        <WeeklyList data={data.weeklyData}/>
+        <br/>
+        <MonthlyList data={data.monthlyData}/>
       </div>
     )
   }
 }
 
-var styles = {
-  background: {
-    backgroundColor: "#00ee00"}
+var data = {
+  weeklyData: {
+    title: "Weekly Goals",
+    goals: [
+      "Cut down a tree",
+      "Build an evil headquarters",
+      "Purchase a BattleCruiser"
+    ]
+  },
+  monthlyData: {
+    title: "Monthly Goals",
+    goals: [
+      "Fire the Death Cannon",
+      "Dominate East Asia"
+    ]
+  }
 };
