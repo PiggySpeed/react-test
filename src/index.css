@@ -22,6 +22,7 @@
   z-index: -1;
   background-color: #edf6fa;
 }
+/* Left Column */
 .left-col,
 .left-col:before {
   width: 33%;
@@ -37,7 +38,7 @@
   bottom: 0;
   z-index: -1;
   left: 0;
-  background-color: #79e5ff;
+  background-color: #e8f6ff;
 }
 .middle-col,
 .middle-col:before {
@@ -87,7 +88,7 @@
   bottom: 0;
   z-index: -1;
   left: 66.6%;
-  background-color: #79e5ff;
+  background-color: #e8f6ff;
 }
 .right-col-paper {
   position: relative;
@@ -102,13 +103,32 @@
   top: 0;
 }
 /* Card Items */
-.card1 {
+.card-1 {
   position: relative;
   height: 50px;
   left: -12px;
   top: -24px;
   padding: 6px;
   margin: 6px;
+  -webkit-user-select: none;
+}
+.card-1-draggable {
+  position: relative;
+  float: left;
+  height: 90%;
+  width: 20px;
+}
+.card-1-content {
+  position: relative;
+  display: inline-block;
+  height: 90%;
+  width: 60%;
+}
+.card-1-delete {
+  position: relative;
+  float: right;
+  height: 90%;
+  width: 10%;
 }
 /* Right Col */
 .right-col-container {

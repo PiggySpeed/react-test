@@ -3,24 +3,39 @@ import * as React from 'react';
 //import Paper from '../../node_modules/material-ui/lib/paper';
 //import Slider from '../../node_modules/material-ui/lib/slider';
 import Card from '../../node_modules/material-ui/lib/card/card';
+import CardActions from '../../node_modules/material-ui/lib/card/card-actions';
+import CardHeader from '../../node_modules/material-ui/lib/card/card-header';
+import CardMedia from '../../node_modules/material-ui/lib/card/card-media';
+import CardTitle from '../../node_modules/material-ui/lib/card/card-title';
+import FlatButton from '../../node_modules/material-ui/lib/flat-button';
+import CardText from '../../node_modules/material-ui/lib/card/card-text';
 import RaisedButton from '../../node_modules/material-ui/lib/raised-button';
 import Colors from '../../node_modules/material-ui/lib/styles/colors';
 //import LeftNav from '../../node_modules/material-ui/lib/left-nav';
 //import MenuItem from '../../node_modules/material-ui/lib/menus/menu-item';
 import FloatingActionButton from '../../node_modules/material-ui/lib/floating-action-button';
 import ContentAdd from '../../node_modules/material-ui/lib/svg-icons/content/add';
+import Clear from '../../node_modules/material-ui/lib/svg-icons/content/clear';
+import TextField from '../../node_modules/material-ui/lib/text-field';
 
 import Radium from 'radium';
 
 //TODO: drag and drop lists
+//TODO: add item numbers to list items
+//TODO: add pleasant animations to list items
+//TODO: prevent event propagation --> not possible currently?
+//TODO: have cursor blinking on card once your create new card
+//TODO: create new card only when other cards are submitted (disabled)
+//TODO: tidy up delete button
+//TODO: find out why list item text is not being properly deleted
+//TODO: add a way to save and clear the list items
 
 var data = [{
   checked: "yes",
-  content: "Take out trash"}, {
+  content: "Take out trasfh"}, {
   checked: "no",
-  content: "paint the car"}
+  content: "paint the carr"}
 ];
-var cards = [];
 
 const styles = {
   card_default: {
@@ -32,11 +47,16 @@ const styles = {
   card_delay: {
     color: Colors.yellow200
   },
-  card_delete: {
-    color: Colors.redA100
+  card_delete_btn: {
+    width: 15,
+    height: 15
   },
   FAB_1: {
-    marginLeft: 150
+    marginLeft: 150,
+    backgroundColor: Colors.white
+  },
+  icon_styles: {
+    marginRight: 24
   }
 };
 
@@ -65,13 +85,23 @@ class FancyCard extends React.Component {
       e.currentTarget.style.backgroundColor = styles.card_delay.color;
     }
   }
+  finalizeText(e) {
+    e.target.disabled = "false"
+  }
   render() {
     return(
       <Card
         {...this.props}
         className="card-1"
         onClick={this.toggleCardState.bind(this)}>
-          <h5 className="card-1-content">{this.props.text}</h5>
+          <span>
+            <TextField hintText="add your item here" onEnterKeyDown={this.finalizeText}/>
+            <CardActions className="card-1-delete">
+              <button onClick={this.props.removeCard}>
+                <Clear style={styles.icon_styles}/>
+              </button>
+            </CardActions>
+          </span>
       </Card>
     )
   }
@@ -95,29 +125,25 @@ class FancyCards extends React.Component {
       })
     }
   }
-  removeCard() {
-    if (this.state.currentData.length >1) {
-      this.state.curentData.pop();
+  removeCard(item) {
+    if (this.state.currentData.length >0) {
+      console.log(item);
+      this.state.currentData.splice(item, 1);
       this.setState({
         currentData: this.state.currentData
       })
     }
-  } // TODO: get removecard working
-  static updateCards() {
-    console.log('update feature still in progress');
   }
   render() {
     return(
-      <div>{this.state.currentData.map(
+      <div>
+        {this.state.currentData.map(
         function(object, i){
           return (
-            <FancyCard key={i} text={object.content}/> )
-        }
+            <FancyCard key={i} removeCard={this.removeCard.bind(this, i)} />)
+        }, this
       )}
       <FloatingActionButton style={styles.FAB_1} onClick={this.addCard.bind(this)}>
-        <ContentAdd/>
-      </FloatingActionButton>
-      <FloatingActionButton style={styles.FAB_1} onClick={this.removeCard.bind(this)}>
         <ContentAdd/>
       </FloatingActionButton>
       </div>
