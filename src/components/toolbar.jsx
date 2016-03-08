@@ -86,7 +86,7 @@ export default class Toolbar extends React.Component {
         <Logo/>
         <span>
           <IndexLink to="/" activeClassName="active">Home</IndexLink>
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/about">About</NavLink>t
           <NavLink to="/display">Display</NavLink>
         </span>
         <PixelFrame/>

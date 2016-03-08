@@ -27,6 +27,7 @@
   background-color: #edf6fa;
 }
 
+/* Left Column */
 .left-col, .left-col:before {
   width: 33%;
 }
@@ -106,14 +107,25 @@
   top: 0;
 }
 /* Card Items */
-.card1 {
+.card-1 {
   position: relative;
   height: 50px;
   left: -12px;
   top: -24px;
   padding: 6px;
   margin: 6px;
+  -webkit-user-select: none;
 }
+.card-1-draggable {
+  position: relative;
+  height: 90%;
+  width: 30px;
+}
+.card-1-content {
+  position: relative;
+  height: 90%;
+}
+
 
 /* Right Col */
 .right-col-container {
