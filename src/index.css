@@ -11,8 +11,10 @@
 /* Layout Code */
 .top-bar,
 .top-bar:before {
+  position: relative;
   width: 100%;
-  height: 100px;
+  height: 90px;
+  margin: 0;
 }
 .top-bar:before {
   content: '';
@@ -20,15 +22,15 @@
   top: 0;
   left: 0;
   z-index: -1;
-  background-color: #edf6fa;
+  background-color: #e8f6ff;
 }
 /* Left Column */
 .left-col,
 .left-col:before {
   width: 33%;
+  margin: 0;
 }
 .left-col {
-  padding: 6px;
   float: left;
 }
 .left-col:before {
@@ -40,12 +42,12 @@
   left: 0;
   background-color: #e8f6ff;
 }
+/* Middle Column */
 .middle-col,
 .middle-col:before {
   width: 33%;
 }
 .middle-col {
-  padding: 6px;
   display: inline-block;
 }
 .middle-col:before {
@@ -65,20 +67,17 @@
   left: 33.3%;
 }
 .middle-col-text-area {
-  resize: none;
-  outline: none;
   width: 100%;
-  padding: 0;
-  border: none;
   height: 100%;
-  margin: 0;
 }
+/* Right Column */
 .right-col,
 .right-col:before {
   width: 33.3%;
+  margin: 0;
 }
 .right-col {
-  padding: 6px;
+  padding: 0;
   float: right;
 }
 .right-col:before {
@@ -90,24 +89,17 @@
   left: 66.6%;
   background-color: #e8f6ff;
 }
-.right-col-paper {
-  position: relative;
-  resize: none;
-  outline: none;
-  width: 100%;
+.right-col-container {
+  background-color: black;
   height: 100%;
-  padding: 0;
-  border: none;
-  margin: 0;
-  left: 0;
-  top: 0;
+  width: 100%;
+  vertical-align: top;
+  z-index: 1;
 }
 /* Card Items */
 .card-1 {
   position: relative;
   height: 50px;
-  left: -12px;
-  top: -24px;
   padding: 6px;
   margin: 6px;
   -webkit-user-select: none;
@@ -129,35 +121,6 @@
   float: right;
   height: 90%;
   width: 10%;
-}
-/* Right Col */
-.right-col-container {
-  position: relative;
-  background-color: black;
-  height: 400px;
-  width: 200px;
-  z-index: 1;
-}
-.weeklyList {
-  position: relative;
-  top: -50px;
-}
-.weeklyListCard {
-  position: relative;
-  height: 50px;
-  padding: 6px;
-  margin: 6px;
-}
-.monthlyList {
-  position: relative;
-}
-.monthlyListCard {
-  position: relative;
-  height: 50px;
-  left: -12px;
-  top: -24px;
-  padding: 6px;
-  margin: 6px;
 }
 /* ToolBar */
 .logoSpace {

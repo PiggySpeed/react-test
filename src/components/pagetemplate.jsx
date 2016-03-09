@@ -18,7 +18,7 @@ export default class PageTemplate extends React.Component {
           <Toolbar/>
         </div>
         <div>
-            {this.props.children || <Home/>}
+          {this.props.children || <Home/>}
         </div>
       </div>
     )

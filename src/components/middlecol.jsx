@@ -2,26 +2,111 @@ import * as React from 'react';
 //import FlatButton from '../../node_modules/material-ui/lib/flat-button';
 import Paper from '../../node_modules/material-ui/lib/paper';
 //import Slider from '../../node_modules/material-ui/lib/slider';
-//import Card from '../../node_modules/material-ui/lib/card/card';
+import Card from '../../node_modules/material-ui/lib/card/card';
 //import RaisedButton from '../../node_modules/material-ui/lib/raised-button';
-//import Colors from '../../node_modules/material-ui/lib/styles/colors';
+import Colors from '../../node_modules/material-ui/lib/styles/colors';
 //import LeftNav from '../../node_modules/material-ui/lib/left-nav';
 import MenuItem from '../../node_modules/material-ui/lib/menus/menu-item';
 import TextField from '../../node_modules/material-ui/lib/text-field';
+import IconButton from '../../node_modules/material-ui/lib/icon-button';
 
-class FancyNotes extends React.Component {
+import EditorFormatListBulleted from '../../node_modules/material-ui/lib/svg-icons/editor/format-list-bulleted';
+import EditorFormatNumberedBulleted from '../../node_modules/material-ui/lib/svg-icons/editor/format-list-numbered';
+import EditorFormatBold from '../../node_modules/material-ui/lib/svg-icons/editor/format-bold';
+import EditorFormatItalic from '../../node_modules/material-ui/lib/svg-icons/editor/format-italic';
+import EditorFormatUnderlined from '../../node_modules/material-ui/lib/svg-icons/editor/format-underlined';
+
+import Radium from 'radium';
+
+//TODO: get middle col icon button hover effects working
+
+
+var styles = {
+  card1: {
+    backgroundColor: Colors.grey200,
+    color: Colors.blue,
+    height: 42
+  },
+  text_editor_icons: {
+    padding: 0,
+    margin: 0,
+    backgroundColor: Colors.clear
+  }
+};
+
+@Radium
+class TextEditorToolBar extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  hoverStyleEnter(e) {
+    e.target.style.backgroundColor = Colors.grey300
+  }
+  hoverStyleLeave(e) {
+    e.target.style.backgroundColor = Colors.grey200
+  }
+  bulletList() {
+    console.log("bulleting")
+  }
+  bulletNumber() {
+    console.log("numbering")
+  }
+  textBold() {
+    console.log("bolding")
+  }
+  textItalic() {
+    console.log("italics")
+  }
+  textUnderline() {
+    console.log("underline")
+  }
   render() {
     return (
-      <Paper className="middle-col-text">
-        <h6>Enter Your Notes Here</h6>
-        <textarea className="middle-col-text-area">
-        </textarea>
-      </Paper>
+      <Card style={styles.card1}>
+        <IconButton onClick={this.bulletList}
+                    onMouseEnter={this.hoverStyleEnter}
+                    onMouseLeave={this.hoverStyleLeave}
+                    tooltip="hallo">
+          <EditorFormatListBulleted style={styles.text_editor_icons} />
+        </IconButton>
+        <IconButton>
+          <EditorFormatNumberedBulleted style={styles.text_editor_icons} />
+        </IconButton>
+        <IconButton>
+          <EditorFormatBold style={styles.text_editor_icons} />
+        </IconButton>
+        <IconButton>
+          <EditorFormatItalic style={styles.text_editor_icons} />
+        </IconButton>
+        <IconButton>
+          <EditorFormatUnderlined style={styles.text_editor_icons} />
+        </IconButton>
+      </Card>
     )
   }
 }
 
-// next steps: create right column
+@Radium
+class FancyNotes extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    return (
+      <Paper className="middle-col-text">
+        <TextEditorToolBar/>
+        <TextField
+          className="middle-col-text-area"
+          multiLine={true}
+          rows={22}
+          rowsMax={22}
+          underlineShow={false}
+          fullWidth={true}>
+        </TextField>
+      </Paper>
+    )
+  }
+}
 
 export default class MiddleCol extends React.Component {
   render() {

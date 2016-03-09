@@ -17,6 +17,36 @@ import TableBody from 'material-ui/lib/table/table-body';
 
 import Radium from 'radium';
 
+var styles = {
+  base: {
+    color: "#79e5ff"
+  },
+  active: {
+    backgroundColor: "Green"
+  },
+  success: {
+    background: "Yellow"
+  }
+};
+
+var data = {
+  weeklyData: {
+    title: "Weekly Goals",
+    goals: [
+      "Cut down a tree",
+      "Build an evil headquarters",
+      "Purchase a BattleCruiser"
+    ]
+  },
+  monthlyData: {
+    title: "Monthly Goals",
+    goals: [
+      "Fire the Death Cannon",
+      "Dominate East Asia"
+    ]
+  }
+};
+
 @Radium
 class WeeklyList extends React.Component {
   constructor(props) {
@@ -56,18 +86,6 @@ class WeeklyList extends React.Component {
   }
 }
 
-var styles = {
-  base: {
-    color: "#79e5ff"
-  },
-  active: {
-    backgroundColor: "Green"
-  },
-  success: {
-    background: "Yellow"
-  }
-};
-
 class MonthlyList extends React.Component {
   constructor(props) {
     super(props);
@@ -100,7 +118,6 @@ class MonthlyList extends React.Component {
     )
   }
 }
-
 export default class RightCol extends React.Component {
   constructor(props) {
     super(props);
@@ -115,21 +132,3 @@ export default class RightCol extends React.Component {
     )
   }
 }
-
-var data = {
-  weeklyData: {
-    title: "Weekly Goals",
-    goals: [
-      "Cut down a tree",
-      "Build an evil headquarters",
-      "Purchase a BattleCruiser"
-    ]
-  },
-  monthlyData: {
-    title: "Monthly Goals",
-    goals: [
-      "Fire the Death Cannon",
-      "Dominate East Asia"
-    ]
-  }
-};

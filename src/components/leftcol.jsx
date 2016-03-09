@@ -17,6 +17,8 @@ import FloatingActionButton from '../../node_modules/material-ui/lib/floating-ac
 import ContentAdd from '../../node_modules/material-ui/lib/svg-icons/content/add';
 import Clear from '../../node_modules/material-ui/lib/svg-icons/content/clear';
 import TextField from '../../node_modules/material-ui/lib/text-field';
+import IconButton from '../../node_modules/material-ui/lib/icon-button';
+
 
 import Radium from 'radium';
 
@@ -47,16 +49,14 @@ const styles = {
   card_delay: {
     color: Colors.yellow200
   },
-  card_delete_btn: {
-    width: 15,
-    height: 15
-  },
   FAB_1: {
     marginLeft: 150,
-    backgroundColor: Colors.white
+    backgroundColor: Colors.white,
+    color: Colors.clear
   },
-  icon_styles: {
-    marginRight: 24
+  title_bar_style: {
+    height: 42,
+    backgroundColor: Colors.orange400
   }
 };
 
@@ -97,9 +97,9 @@ class FancyCard extends React.Component {
           <span>
             <TextField hintText="add your item here" onEnterKeyDown={this.finalizeText}/>
             <CardActions className="card-1-delete">
-              <button onClick={this.props.removeCard}>
-                <Clear style={styles.icon_styles}/>
-              </button>
+              <IconButton onClick={this.props.removeCard}>
+                <Clear/>
+              </IconButton>
             </CardActions>
           </span>
       </Card>
@@ -150,10 +150,27 @@ class FancyCards extends React.Component {
     );
   }
 }
+
+class TitleBar extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    return(
+      <Card style={styles.title_bar_style} >
+        <CardText>TODO</CardText>
+      </Card>
+    )
+  }
+}
+
 export default class LeftCol extends React.Component {
   render() {
     return(
-      <FancyCards/>
+      <div>
+        <TitleBar/>
+        <FancyCards/>
+      </div>
     )
   }
 };

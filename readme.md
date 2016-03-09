@@ -90,6 +90,9 @@ landscape. Material-UI does not provide anything for layout (unlike
 Bootstrap's grid). Therefore, you will need to import `flexboxgrid` if
 you want to structure things within a grid.
 - Tutorial: https://www.google.com/design/spec/material-design/introduction.html#
+- http://materialdesignblog.com/the-ultimate-guide-to-googles-material-design/
+- http://materialdesignblog.com/top-25-material-design-html-css-code-snippets-from-codepen/
+
 
 Note: I am currently unsure of the advantages of using `react-flexbox-grid`
 over `flexboxgrid`. It seems that `flexboxgrid` does the trick, but you
