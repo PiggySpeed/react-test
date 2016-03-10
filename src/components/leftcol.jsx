@@ -19,7 +19,6 @@ import Clear from '../../node_modules/material-ui/lib/svg-icons/content/clear';
 import TextField from '../../node_modules/material-ui/lib/text-field';
 import IconButton from '../../node_modules/material-ui/lib/icon-button';
 
-
 import Radium from 'radium';
 
 //TODO: drag and drop lists
@@ -55,8 +54,7 @@ const styles = {
     color: Colors.clear
   },
   title_bar_style: {
-    height: 42,
-    backgroundColor: Colors.orange400
+    backgroundColor: Colors.grey200
   }
 };
 
@@ -165,6 +163,9 @@ class TitleBar extends React.Component {
 }
 
 export default class LeftCol extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
     return(
       <div>

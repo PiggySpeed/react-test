@@ -20,12 +20,10 @@ import Radium from 'radium';
 
 //TODO: get middle col icon button hover effects working
 
-
 var styles = {
   card1: {
     backgroundColor: Colors.grey200,
-    color: Colors.blue,
-    height: 42
+    color: Colors.blue
   },
   text_editor_icons: {
     padding: 0,
@@ -93,8 +91,8 @@ class FancyNotes extends React.Component {
   }
   render() {
     return (
-      <Paper className="middle-col-text">
-        <TextEditorToolBar/>
+      <div className="middle-col-text">
+        <TextEditorToolBar className="text-editor-toolbar"/>
         <TextField
           className="middle-col-text-area"
           multiLine={true}
@@ -103,12 +101,15 @@ class FancyNotes extends React.Component {
           underlineShow={false}
           fullWidth={true}>
         </TextField>
-      </Paper>
+      </div>
     )
   }
 }
 
 export default class MiddleCol extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
     return (
       <FancyNotes/>

@@ -9,6 +9,7 @@ import Colors from '../../node_modules/material-ui/lib/styles/colors';
 //import LeftNav from '../../node_modules/material-ui/lib/left-nav';
 import DropDownMenu from '../../node_modules/material-ui/lib/DropDownMenu';
 import MenuItem from '../../node_modules/material-ui/lib/menus/menu-item';
+
 import PixelFrame from './pixelframe.jsx';
 
 import Radium from 'radium';
@@ -57,13 +58,18 @@ class ToolbarMenu extends React.Component {
   }
   render() {
     return(
-      <span className="toolbarMenuSpace">
+      <div className="toolbarMenuSpace">
         <DropDownMenu value={this.state.value} onChange={this.handleChange.bind(this)}>
           <MenuItem value={1} primaryText="Home"/>
           <MenuItem value={2} primaryText="About"/>
           <MenuItem value={3} primaryText="Display"/>
         </DropDownMenu>
-      </span>
+        <span>
+          <IndexLink to="/" activeClassName="active">Home</IndexLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/display">Display</NavLink>
+        </span>
+      </div>
     )
   }
 }
@@ -84,11 +90,6 @@ export default class Toolbar extends React.Component {
     return(
       <span>
         <Logo/>
-        <span>
-          <IndexLink to="/" activeClassName="active">Home</IndexLink>
-          <NavLink to="/about">About</NavLink>t
-          <NavLink to="/display">Display</NavLink>
-        </span>
         <PixelFrame/>
         <ToolbarMenu returnRoute={this.displayRoute.bind(this)}/>
       </span>

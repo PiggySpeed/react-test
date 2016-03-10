@@ -85,7 +85,6 @@ class WeeklyList extends React.Component {
     )
   }
 }
-
 class MonthlyList extends React.Component {
   constructor(props) {
     super(props);
