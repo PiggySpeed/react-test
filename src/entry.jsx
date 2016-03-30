@@ -5,27 +5,17 @@
 // Is it possible to have main.js become the entry point? Can we merge main.js with
 // entry.js?
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import DisplayPage from './components/display.jsx';
-import AboutPage from './components/about.jsx';
-import HomePage from './components/home.jsx';
-import PageTemplate from './components/pagetemplate.jsx';
-import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import { render } from 'react-dom';
+import App from './app.jsx';
+import { createStore } from 'redux';
+import todoApp from './stores/store';
+import { Provider } from 'react-redux';
 
-class App extends React.Component {
-  render() {
-    return (
-      <Router history={hashHistory}>
-        <Route path="/" component={PageTemplate}>
-          <IndexRoute component={HomePage}/>
-          <Route path="/home" component={HomePage}/>
-          <Route path="/about" component={AboutPage}/>
-          <Route path="/display" component={DisplayPage}/>
-        </Route>
-      </Router>
-    )
-}
-}
-
-ReactDOM.render(<App/>,document.getElementById('content'));
+const store = createStore(todoApp);
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('content')
+);
 

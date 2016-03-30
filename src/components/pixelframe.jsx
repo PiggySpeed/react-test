@@ -88,7 +88,7 @@ export default class PixelFrame extends React.Component {
     return(trees)
   }
   loadPixel(pixelID){
-    return("pix")
+    return("")
   }
   render() {
     return(
