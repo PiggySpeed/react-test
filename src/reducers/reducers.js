@@ -1,15 +1,24 @@
 import * as types from '../actions/actiontypes';
+import update from 'react/lib/update';
 
-const todoReducer = (state = [1,2,3], action) => {
-  console.log("working", state, action);
+const initialState = {
+  cardkeys: [0,0],
+  cards: [{tree: 80}]
+
+};
+const cardlistReducer = (state = initialState, action) => {
   switch(action.type) {
     case types.GET_TODO_LIST:
       return {
         ...state,
-        todolist: [5, 8, 1]
+        cardkeys: [8, 5],
+        cards: update(state.cards, {$merge: {a: 3}})
       };
     default:
-      return state
+      return {
+        ...state,
+        cards: update(state.cards, {$merge: ({a: 3})})
+      }
   }
 };
 
@@ -35,4 +44,4 @@ const todoReducer = (state = [1,2,3], action) => {
 //      return state
 //  }
 //};
-export default todoReducer
+export default cardlistReducer

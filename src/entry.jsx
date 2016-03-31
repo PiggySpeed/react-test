@@ -8,7 +8,7 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import App from './app.jsx';
 import { createStore } from 'redux';
-import todoApp from './stores/store';
+import todoApp from './reducers/store';
 import { Provider } from 'react-redux';
 
 const store = createStore(todoApp);

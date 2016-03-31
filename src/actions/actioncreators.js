@@ -23,3 +23,9 @@ export function toggleTaskDelayed(taskNum){
     order: taskNum
   }
 }
+export function incrementCard(currentNum){
+  return {
+    type: types.INCREMENT,
+    value: currentNum
+  }
+}

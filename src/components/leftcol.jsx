@@ -14,17 +14,18 @@ import { getState } from 'redux';
 import { connect } from 'react-redux';
 import { toggleTaskUnfinished, toggleTaskFinished, toggleTaskDelayed, getTodoList } from '../actions/actioncreators';
 
-import * as store from '../stores/store';
+import * as store from '../reducers/store';
 
-const TodoCard = () => (
+const TodoCard = ({number}) => (
   <Card className="card-1">
-    <CardText>hallo</CardText>
+    <CardText>"hallo" +  {number}</CardText>
   </Card>
 );
 
-const TodoCardList = ({todolist}) => (
+const TodoCardList = ({cards, cardtext}) => (
     <div>
-      {todolist.map(id => <TodoCard key={id} />)}
+      {console.log(cards)}
+      {cards.map((item, id) => <TodoCard key={id} number={cardtext}/>)}
       <FloatingActionButton>
         <ContentAdd/>
       </FloatingActionButton>
@@ -34,12 +35,11 @@ const TodoCardList = ({todolist}) => (
 // takes in a Redux store's state and returns props to be passed into the
 // presentational components, these props are updated any time the state changes
 const mapStateToProps = (state) => {
-  console.log(state.todoReducer);
   return {
-    todolist: state.todoReducer
+    cards: state.cardlistReducer.cards,
+    cardtext: state.cardReducer.value
   }
 };
-
 // takes in a dispatch method from the store and returns values to be passed into the
 // props that use a dispatch method to dispatch actions.
 // It specifies the behavior of which callback prop dispatches which action. In this
