@@ -2,22 +2,21 @@ import * as types from '../actions/actiontypes';
 import update from 'react/lib/update';
 
 const initialState = {
-  cardkeys: [0,0],
-  cards: [{tree: 80}]
-
+  cardkeys: [0,1],
+  cards: [{0: "holo"}, {1:"hala"}]
 };
 const cardlistReducer = (state = initialState, action) => {
   switch(action.type) {
-    case types.GET_TODO_LIST:
+    case types.TOGGLE_TODO:
       return {
         ...state,
-        cardkeys: [8, 5],
-        cards: update(state.cards, {$merge: {a: 3}})
+        cards: update(state.cards, {$merge: (
+          {[action.cardkey]: "IT WORKsS"}
+        )})
       };
     default:
       return {
-        ...state,
-        cards: update(state.cards, {$merge: ({a: 3})})
+        ...state
       }
   }
 };

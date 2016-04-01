@@ -12,32 +12,40 @@ import IconButton from '../../node_modules/material-ui/lib/icon-button';
 
 import { getState } from 'redux';
 import { connect } from 'react-redux';
-import { toggleTaskUnfinished, toggleTaskFinished, toggleTaskDelayed, getTodoList } from '../actions/actioncreators';
+import { toggleCard } from '../actions/actioncreators';
 
 import * as store from '../reducers/store';
 
-const TodoCard = ({number}) => (
+//presentational component
+const TodoCard = ({onClick, cardtext}) => (
   <Card className="card-1">
-    <CardText>"hallo" +  {number}</CardText>
+    {console.log(cardtext)}
+    <CardText onClick={onClick}>{cardtext}</CardText>
   </Card>
 );
 
-const TodoCardList = ({cards, cardtext}) => (
-    <div>
-      {console.log(cards)}
-      {cards.map((item, id) => <TodoCard key={id} number={cardtext}/>)}
-      <FloatingActionButton>
-        <ContentAdd/>
-      </FloatingActionButton>
-    </div>
+//container component
+const TodoCardList = ({cards, onTodoClick}) => (
+  <div>
+    {cards.map((item, id) => (<TodoCard
+                                key={id}
+                                cardtext={item[id]}
+                                onClick={() => onTodoClick(id, "hallo")}/>))}
+    <FloatingActionButton>
+      <ContentAdd/>
+    </FloatingActionButton>
+  </div>
 );
-
-// takes in a Redux store's state and returns props to be passed into the
-// presentational components, these props are updated any time the state changes
 const mapStateToProps = (state) => {
   return {
-    cards: state.cardlistReducer.cards,
-    cardtext: state.cardReducer.value
+    cards: state.cardlistReducer.cards
+  }
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onTodoClick: (cardkey, cardstatus) => {
+      dispatch(toggleCard(cardkey, cardstatus))
+    }
   }
 };
 // takes in a dispatch method from the store and returns values to be passed into the
@@ -57,7 +65,7 @@ const mapStateToProps = (state) => {
 // pass the props to.
 // The container component will calculate the props to pass on by merging the objects
 // returned by mapState and mapDispatch, with its own props.
-const TodoListContainer = connect(mapStateToProps)(TodoCardList);
+const TodoListContainer = connect(mapStateToProps, mapDispatchToProps)(TodoCardList);
 
 export default class LeftCol extends React.Component {
   render() {

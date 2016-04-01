@@ -1,5 +1,1 @@
-export const TASK_UNFINISHED = "TASK_UNFINISHED";
-export const TASK_FINISHED = "TASK_FINISHED";
-export const TASK_DELAYED = "TASK_DELAYED";
-export const GET_TODO_LIST = "GET_TODO_LIST";
-export const INCREMENT = "INCREMENT";
+export const TOGGLE_TODO = "TOGGLE_TODO";

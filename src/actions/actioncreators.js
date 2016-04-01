@@ -1,31 +1,9 @@
 import * as types from './actiontypes';
 
-export const getTodoList = () => {
+export const toggleCard = (cardkey, cardstatus) => {
   return {
-    type: types.GET_TODO_LIST
+    type: types.TOGGLE_TODO,
+    cardkey: cardkey,
+    cardstatus: cardstatus
   }
 };
-export const toggleTaskUnfinished = (taskNum) => {
-  return {
-    type: types.TASK_UNFINISHED,
-    taskNum
-  }
-};
-export function toggleTaskFinished(taskNum) {
-  return {
-    type: types.TASK_FINISHED,
-    order: taskNum
-  }
-}
-export function toggleTaskDelayed(taskNum){
-  return {
-    type: types.TASK_DELAYED,
-    order: taskNum
-  }
-}
-export function incrementCard(currentNum){
-  return {
-    type: types.INCREMENT,
-    value: currentNum
-  }
-}
