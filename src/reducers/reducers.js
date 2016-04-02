@@ -3,16 +3,18 @@ import update from 'react/lib/update';
 
 const initialState = {
   cardkeys: [0,1],
-  cards: [{0: "holo"}, {1:"hala"}]
+  cardtextbyid: [{0: "holo"}, {1:"hala"}],
+  cardstatusbyid: [{0: "default"}, {1: "default"}]
 };
 const cardlistReducer = (state = initialState, action) => {
   switch(action.type) {
     case types.TOGGLE_TODO:
       return {
         ...state,
-        cards: update(state.cards, {$merge: (
-          {[action.cardkey]: "IT WORKsS"}
-        )})
+        cardtextbyid: update(state.cardtextbyid, {[action.cardkey]: {$merge:
+          {[action.cardkey]: action.cardtext}}}),
+        cardstatusbyid: update(state.cardstatusbyid, {[action.cardkey]: {$merge:
+          {[action.cardkey]: action.cardstatus}}})
       };
     default:
       return {

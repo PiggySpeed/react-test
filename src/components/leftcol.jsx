@@ -10,61 +10,69 @@ import Clear from '../../node_modules/material-ui/lib/svg-icons/content/clear';
 import TextField from '../../node_modules/material-ui/lib/text-field';
 import IconButton from '../../node_modules/material-ui/lib/icon-button';
 
-import { getState } from 'redux';
 import { connect } from 'react-redux';
 import { toggleCard } from '../actions/actioncreators';
 
 import * as store from '../reducers/store';
 
+//styles
+const CardStyles = (cardstatus) => {
+  switch(cardstatus) {
+    case "default":
+      return {backgroundColor: Colors.white};
+    case "done":
+      return {backgroundColor: Colors.greenA200};
+    case "delayed":
+      return {backgroundColor: Colors.yellowA100};
+  }
+};
+
+const FetchNextCardStyle = (cardstatus) => {
+  switch(cardstatus) {
+    case "default":
+      return "done";
+    case "done":
+      return "delayed";
+    case "delayed":
+      return "default";
+  }
+};
+
 //presentational component
-const TodoCard = ({onClick, cardtext}) => (
-  <Card className="card-1">
-    {console.log(cardtext)}
+const TodoCard = ({onClick, style, cardtext}) => (
+  <Card style={style} className="card-1">
     <CardText onClick={onClick}>{cardtext}</CardText>
   </Card>
 );
 
 //container component
-const TodoCardList = ({cards, onTodoClick}) => (
+const TodoCardList = ({cardtextbyid, cardstatusbyid, onTodoClick}) => (
   <div>
-    {cards.map((item, id) => (<TodoCard
+    {cardtextbyid.map((item, id) => (<TodoCard
                                 key={id}
+                                style={CardStyles(cardstatusbyid[id][id])}
                                 cardtext={item[id]}
-                                onClick={() => onTodoClick(id, "hallo")}/>))}
+                                onClick={() => onTodoClick(id, "sample", FetchNextCardStyle(cardstatusbyid[id][id]))}/>))}
     <FloatingActionButton>
       <ContentAdd/>
     </FloatingActionButton>
   </div>
 );
+
 const mapStateToProps = (state) => {
   return {
-    cards: state.cardlistReducer.cards
+    cardtextbyid: state.cardlistReducer.cardtextbyid,
+    cardstatusbyid: state.cardlistReducer.cardstatusbyid
   }
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    onTodoClick: (cardkey, cardstatus) => {
-      dispatch(toggleCard(cardkey, cardstatus))
+    onTodoClick: (cardkey, cardtextbyid, cardstatus) => {
+      dispatch(toggleCard(cardkey, cardtextbyid, cardstatus))
     }
   }
 };
-// takes in a dispatch method from the store and returns values to be passed into the
-// props that use a dispatch method to dispatch actions.
-// It specifies the behavior of which callback prop dispatches which action. In this
-// case, the callback prop onTodoClick is set to dispatch the toggleTaskDelayed action.
-//const mapDispatchToProps = (dispatch) => {
-//  return {
-//    todos: () => {
-//      dispatch(getTodoList())
-//    }
-//  }
-//};
-// We can use the mapState and mapDispatch functions to describe the container component
-// using the connect() function provided by react-redux. This is a curried function, which
-// means that we will have to specify the presentational component that we want to
-// pass the props to.
-// The container component will calculate the props to pass on by merging the objects
-// returned by mapState and mapDispatch, with its own props.
+
 const TodoListContainer = connect(mapStateToProps, mapDispatchToProps)(TodoCardList);
 
 export default class LeftCol extends React.Component {
