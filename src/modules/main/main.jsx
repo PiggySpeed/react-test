@@ -8,6 +8,8 @@ import Navigation from 'components/navigation/navigation.jsx';
 import NavigationButton from 'components/navigation/navigationbutton.jsx';
 import Content from 'components/content/content.jsx';
 
+import { onClick } from './mainactions';
+
 class MainContainer extends React.Component {
   render() {
     return(
@@ -15,6 +17,7 @@ class MainContainer extends React.Component {
         <Navigation>
           <NavigationButton path="/" text="Home" />
           <NavigationButton path="/about" text="About" />
+          <button className="testbtn" onClick={() => this.props.onClick("tree")}>teee</button>
         </Navigation>
         <Content>
           {this.props.children || <HomePage/>}
@@ -28,7 +31,11 @@ const mapStateToProps = (state) => {
   return { }
 };
 const mapDispatchToProps = (dispatch) => {
-  return { }
+  return {
+    onClick: (text) => {
+      dispatch(onClick(text))
+    }
+  }
 };
 const MainPage = connect(mapStateToProps, mapDispatchToProps)(MainContainer);
 export default MainPage;

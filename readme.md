@@ -22,3 +22,6 @@ To run the code in the future, you only need to run steps 3 and 4.
 5. External components are those originating from node modules, such as Material-UI components. They can be used anywhere.
 6. React.PropTypes checking is MANDATORY for shared components and RECOMMENDED for all other components.
 7. SetState is only for UI animations (e.g. when using `react-motion`).
+
+## DevTools
+In order to use devtool extensions in electron, follow this link: https://github.com/electron/electron/blob/master/docs/tutorial/devtools-extension.md
