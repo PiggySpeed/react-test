@@ -1,6 +1,5 @@
 #  Reactron
-`reactron` is a development environment that lets you prototype components
-within an electron-react application.
+`reactron` is a boilerplate program that lets you rapidly prototype web apps built using electron, react, and redux. It is great for learning since it leaves a lot of room for further customization.
 
 ## Start
 To start using this code
@@ -8,9 +7,7 @@ To start using this code
 2. Open a console and enter "npm install"
 3. Open a console and enter "npm run-script watch"
 4. Open another console and enter "npm start"
-5. HMR should be working, in which case any changes to the code (that have
-nothing to do with package.json or webpack.config.js) will be reflected
-instantly in the runtime.
+5. HMR should be working, in which case any changes to the code (that have nothing to do with package.json or webpack.config.js) will be reflected instantly in the runtime.
 
 To run the code in the future, you only need to run steps 3 and 4.
 
@@ -25,3 +22,4 @@ To run the code in the future, you only need to run steps 3 and 4.
 
 ## DevTools
 In order to use devtool extensions in electron, follow this link: https://github.com/electron/electron/blob/master/docs/tutorial/devtools-extension.md
+Currently, only Redux DevTools is working.
