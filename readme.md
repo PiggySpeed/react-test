@@ -76,6 +76,8 @@ comparing the Virtual DOM vs. the real DOM (e.g. such as when you want a
 sidepanel component to appear/disappear) allow re-rendering of just the
 parent nodes, rather than the entire page.
 - Tutorial: https://blog.risingstack.com/the-react-way-getting-started-tutorial/
+- A guide to react tools and libraries: https://www.toptal.com/react/navigating-the-react-ecosystem
+- Lessons learned: https://forums.meteor.com/t/material-ui-lessons-learned/15091/16
 
 ## Less
 The same as CSS, except with the option to add more functionality.

@@ -13,6 +13,7 @@ import HomePage from './components/home';
 import PageTemplate from './components/pagetemplate';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
+
 class App extends React.Component {
   render() {
     return (

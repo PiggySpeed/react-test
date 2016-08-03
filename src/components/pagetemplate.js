@@ -17,7 +17,7 @@ export default class PageTemplate extends React.Component{
           <li><NavLink to="/about">About</NavLink></li>
           <li><NavLink to="/display">Display</NavLink></li>
         </ul>
-        {this.props.children || <Home/>}
+          {this.props.children || <Home/>}
       </div>
     )
   }
