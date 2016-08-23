@@ -40,3 +40,10 @@ node_modules
 # bundlejs files
 /public/built/bundle.js
 /public/built/bundle.js.map
+<<<<<<< HEAD
+
+/dist
+=======
+dist/bundle.js
+dist/bundle.js.map
+>>>>>>> master
