@@ -1,6 +1,13 @@
 import { createStore, combineReducers } from 'redux';
 
-const todoApp = combineReducers({
+// Reducers
+import MainReducer from 'modules/main/mainreducer';
 
-});
-export default todoApp
+const store = createStore(
+  combineReducers({
+    MainReducer
+  }),
+  {},
+  window.devToolsExtension && window.devToolsExtension()
+);
+export default store;
